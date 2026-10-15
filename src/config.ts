@@ -1,9 +1,9 @@
-// מזהי Airtable – מקור הנתונים של הדאשבורד.
+  // מזהי Airtable – מקור הנתונים של הדאשבורד.
 // https://airtable.com/app0fHlPfEW2j2Fti/tbluBvD05Y5PrZy1z/viweSepoDyFWqMsNU
 export const AIRTABLE = {
-  baseId: 'app0fHlPfEW2j2Fti',
+  baseId: 'app1gnlGwquesbWLz',
   leads: {
-    tableId: 'tbluBvD05Y5PrZy1z',
+    tableId:  'tblOj9i54fyZZRq84',
     viewId: 'viweSepoDyFWqMsNU',
     fields: {
       phone: 'fldatY6aabyro2QxH', // נייד (שדה ראשי)
