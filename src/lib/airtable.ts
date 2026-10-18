@@ -96,7 +96,7 @@ export async function fetchLeads(): Promise<Lead[]> {
 export async function updateLead(id: string, patch: LeadPatch): Promise<Lead> {
   const r = await request<AirtableRecord>(`${AIRTABLE.leads.tableId}/${id}`, {
     method: 'PATCH',
-    body: JSON.stringify({ fields: patchToFields(patch), returnFieldsByFieldId: true }),
+    body: JSON.stringify({ fields: patchToFields(patch), returnFieldsByFieldId: true, typecast: true }),
   });
   return recordToLead(r);
 }
@@ -104,7 +104,7 @@ export async function updateLead(id: string, patch: LeadPatch): Promise<Lead> {
 export async function createLead(patch: LeadPatch): Promise<Lead> {
   const res = await request<{ records: AirtableRecord[] }>(AIRTABLE.leads.tableId, {
     method: 'POST',
-    body: JSON.stringify({ records: [{ fields: patchToFields(patch) }], returnFieldsByFieldId: true }),
+    body: JSON.stringify({ records: [{ fields: patchToFields(patch) }], returnFieldsByFieldId: true, typecast: true }),
   });
   return recordToLead(res.records[0]);
 }
