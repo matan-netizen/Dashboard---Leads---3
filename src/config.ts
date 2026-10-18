@@ -1,28 +1,28 @@
-// מזהי Airtable – מקור הנתונים של הדאשבורד.
-// https://airtable.com/app0fHlPfEW2j2Fti/tbluBvD05Y5PrZy1z/viweSepoDyFWqMsNU
+// מזהי Airtable – מקור הנתונים של הדאשבורד (בסיס Leads).
+// https://airtable.com/app1gnlGwquesbWLz/tblDtDEufknTM9nRq/viwDhazqxYdBrmjLf
 export const AIRTABLE = {
-  baseId: 'app0fHlPfEW2j2Fti',
+  baseId: 'app1gnlGwquesbWLz',
   leads: {
-    tableId: 'tbluBvD05Y5PrZy1z',
-    viewId: 'viweSepoDyFWqMsNU',
+    tableId: 'tblDtDEufknTM9nRq', // לידים
+    viewId: 'viwDhazqxYdBrmjLf',
     fields: {
-      phone: 'fldatY6aabyro2QxH', // נייד (שדה ראשי)
-      name: 'fld3gkDsopHXERkPz', // שם
-      firstAttempt: 'fldyzfJPvnpzR9ODq', // ניסיון ראשון
-      secondAttempt: 'fldmOGLXf8saAj6ja', // ניסיון שני
-      lastUpdate: 'fldnFNa1q6Sutu3S7', // עדכון אחרון
-      status: 'fldUFuQsuxVUTJ6Ds', // סטטוס
-      notes: 'fldaNfYdxp6wdu2xq', // הערות / תשלום
+      phone: 'fldLHxUXHC2gA4y9x', // Phone
+      name: 'fldIGzRBcKP55LiZa', // Name
+      firstAttempt: 'fldKIudhbFQRf0MzN', // ניסיון ראשון
+      secondAttempt: 'fldFJtQXsUvbeYGEv', // ניסיון שני
+      lastUpdate: 'fld6VWJYEELjSyIgt', // עדכון אחרון
+      status: 'fldbnDYos8psUmmlL', // סטטוס
+      notes: 'fldwAOWPraFHViM2X', // Summary (סיכום ה-AI מ-Make)
     },
   },
   templates: {
-    tableId: 'tbl8SI6TZBh5njWAJ',
+    tableId: 'tblOj9i54fyZZRq84', // הודעות ואצאפ
     fields: {
-      leadType: 'fldJDbgKJEtEONNHB', // סוג ליד
-      goal: 'fldKEOSfkncvsufWo', // מטרה
-      stageA: 'fldSAAj6R93XN9EEk', // הודעה שלב א'
-      stageB: 'fld2AhUnH7LzrX8XM', // הודעה שלב ב'
-      extra: 'fldHl1S33XJ3KXCPQ', // הודעה נוספת
+      leadType: 'fldbe3iddTo4oX12a', // סוג ליד
+      goal: 'fld3E2OYAcv4uJ8u1', // מטרה
+      stageA: 'fldlcDCqd2vFv1EF1', // הודעה שלב א
+      stageB: 'fldyiqtFCfIRCGrnt', // הודעה שלב ב'
+      extra: 'flddohg0lcebbLx5O', // הודעה נוספת
     },
   },
 } as const;
