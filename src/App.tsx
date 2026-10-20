@@ -10,6 +10,8 @@ import { TemplatesView } from './components/TemplatesView';
 import { Button } from './components/ui';
 import { AIRTABLE, AIRTABLE_PROXY, setBrowserToken } from './config';
 import { ConnectDialog } from './components/ConnectDialog';
+import { AgentWidget } from './components/agent/AgentWidget';
+import { useNewLeadTrigger } from './hooks/useNewLeadTrigger';
 import { useLeads } from './hooks/useLeads';
 import { useTheme } from './hooks/useTheme';
 import { EMPTY_FILTERS, applyFilters, type Filters } from './lib/filters';
@@ -30,6 +32,7 @@ const AIRTABLE_URL = `https://airtable.com/${AIRTABLE.baseId}/${AIRTABLE.leads.t
 export default function App() {
   const data = useLeads();
   const theme = useTheme();
+  const trigger = useNewLeadTrigger({ leads: data.leads, source: data.source, loading: data.loading, reload: data.reload });
   const [tab, setTab] = useState<Tab>('overview');
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
   const [openId, setOpenId] = useState<string | null>(null);
@@ -147,8 +150,18 @@ export default function App() {
       )}
 
       {openLead && <LeadDrawer key={openLead.id} lead={openLead} templates={data.templates} onClose={() => setOpenId(null)} onSave={data.update} />}
-      {creating && <NewLeadDialog onClose={() => setCreating(false)} onCreate={data.create} />}
+      {creating && (
+        <NewLeadDialog
+          onClose={() => setCreating(false)}
+          onCreate={async (p) => {
+            const ok = await data.create(p);
+            if (ok) trigger.markSeenNow(); // ליד ידני – לא "ליד חדש מהמייל"
+            return ok;
+          }}
+        />
+      )}
       {connecting && <ConnectDialog onClose={() => setConnecting(false)} onConnected={data.reload} />}
+      <AgentWidget leads={data.leads} templates={data.templates} pending={trigger.pending} onSeen={trigger.markAllSeen} onUpdate={data.update} onOpenLead={setOpenId} />
     </div>
   );
 }
