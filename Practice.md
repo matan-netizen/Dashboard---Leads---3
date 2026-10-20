@@ -14,6 +14,7 @@
 | קוד אפליקציה | ✅ גרסה 1 – סקירה, טבלה, לוח, חלון ליד, ליד חדש, תבניות וואטסאפ |
 | חיבור ל-Airtable | ✅ קריאה וכתיבה דרך פרוקסי; דורש `AIRTABLE_TOKEN` ב-`.env` |
 | בדיקות | ✅ 34 בדיקות יחידה (Vitest) |
+| עוזר הלידים (סוכן AI) | ✅ שלב 1א – טריגר ליד חדש, אייקון צף וחלון צ'אט עם 3 אפשרויות. אפיון: [`agent/SPEC.md`](./agent/SPEC.md) |
 | CI | ✅ GitHub Actions – lint, typecheck, test, build |
 | GitHub Pages | ✅ פרסום אוטומטי של גרסת הדמה (Source: GitHub Actions) |
 | ענף עבודה | `claude/busy-volta-pun871` |
